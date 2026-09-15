@@ -39,10 +39,10 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
   }
   .doc-logo {
-    height: 40px;
+    height: 38px;
     width: auto;
     max-width: 160px;
     display: block;
@@ -55,7 +55,7 @@
   }
   .doc-meta strong { color: var(--ink); }
   .doc-title-block h1 {
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 700;
   }
   .doc-type-label {
@@ -87,9 +87,9 @@
     letter-spacing: 0.02em;
     border-bottom: 1px solid var(--hairline);
     padding-bottom: 6px;
-    margin-top: 32px;
+    margin-top: 20px;
   }
-  p { margin: 0 0 14px; }
+  p { margin: 0 0 10px; }
   table.terms {
     width: 100%;
     border-collapse: collapse;
@@ -116,13 +116,13 @@
   .closing-note {
     font-style: italic;
     color: var(--muted);
-    margin-top: 28px;
+    margin-top: 16px;
   }
   .signature-section {
-    margin-top: 40px;
+    margin-top: 18px;
   }
   .sig-block {
-    margin-top: 24px;
+    margin-top: 18px;
   }
   .sig-image {
     height: 70px;
@@ -139,15 +139,15 @@
     text-transform: none;
   }
   .acceptance-block {
-    margin-top: 40px;
-    padding-top: 24px;
+    margin-top: 18px;
+    padding-top: 14px;
     border-top: 1px solid var(--hairline);
   }
   .field-row {
     display: flex;
     align-items: baseline;
     gap: 16px;
-    margin: 18px 0;
+    margin: 12px 0;
   }
   .field-label {
     width: 90px;
@@ -164,8 +164,8 @@
     font-weight: 600;
   }
   footer {
-    margin-top: 48px;
-    padding-top: 20px;
+    margin-top: 18px;
+    padding-top: 12px;
     border-top: 3px solid var(--brand-red);
     font-size: 12px;
     color: var(--muted);
@@ -182,9 +182,45 @@
     margin-top: 10px;
     font-style: italic;
   }
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+
   @media print {
-    body { background: #fff; }
-    .page { box-shadow: none; margin: 0; padding: 24px 8px; max-width: 100%; }
+    html, body {
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 10mm 12mm 4mm;
+      max-width: 100%;
+      min-height: 0;
+      page-break-inside: avoid;
+    }
+
+    .doc-header {
+      margin-bottom: 12px;
+    }
+
+    .letter-date,
+    .recipient-block,
+    .signature-section,
+    .acceptance-block,
+    footer {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
   }
 </style>
 </head>
